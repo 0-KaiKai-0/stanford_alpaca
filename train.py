@@ -40,6 +40,7 @@ PROMPT_DICT = {
         "### Instruction:\n{instruction}\n\n### Response:"
     ),
 }
+TARGET = ("{rationale}\n\n###So the answer is:\n{output}")
 
 
 @dataclass
@@ -131,6 +132,7 @@ class SupervisedDataset(Dataset):
         super(SupervisedDataset, self).__init__()
         logging.warning("Loading data...")
         list_data_dict = utils.jload(data_path)
+        # list_data_dict = list_data_dict[:int(len(list_data_dict) * 0.1)]
 
         logging.warning("Formatting inputs...")
         prompt_input, prompt_no_input = PROMPT_DICT["prompt_input"], PROMPT_DICT["prompt_no_input"]
@@ -138,7 +140,12 @@ class SupervisedDataset(Dataset):
             prompt_input.format_map(example) if example.get("input", "") != "" else prompt_no_input.format_map(example)
             for example in list_data_dict
         ]
-        targets = [f"{example['output']}{tokenizer.eos_token}" for example in list_data_dict]
+        targets = [
+            TARGET.format_map(example) + tokenizer.eos_token if example.get("rationale", "") != "" else f"{example['output']}{tokenizer.eos_token}"
+            for example in list_data_dict
+        ]
+        # import pdb
+        # pdb.set_trace()
 
         logging.warning("Tokenizing inputs... This may take some time...")
         data_dict = preprocess(sources, targets, tokenizer)
