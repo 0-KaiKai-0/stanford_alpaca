@@ -1,0 +1,599 @@
+{
+    "os": "Linux-5.15.0-1047-gcp-x86_64-with-glibc2.31",
+    "python": "3.9.18",
+    "heartbeatAt": "2023-12-26T02:45:17.104163",
+    "startedAt": "2023-12-26T02:45:16.411984",
+    "docker": null,
+    "cuda": null,
+    "args": [
+        "--model_name_or_path",
+        "/home/LeiFeng/model/json/llama-7b",
+        "--data_path",
+        "./alpaca_rationale.json",
+        "--bf16",
+        "True",
+        "--output_dir",
+        "/home/LeiFeng/model/json/alpaca_rg-js-alpha0.8-pdb",
+        "--run_name",
+        "alpaca_rg-js-alpha0.8-pdb",
+        "--num_train_epochs",
+        "3",
+        "--per_device_train_batch_size",
+        "2",
+        "--per_device_eval_batch_size",
+        "2",
+        "--gradient_accumulation_steps",
+        "16",
+        "--evaluation_strategy",
+        "no",
+        "--save_strategy",
+        "steps",
+        "--save_steps",
+        "2000",
+        "--save_total_limit",
+        "1",
+        "--learning_rate",
+        "2e-5",
+        "--weight_decay",
+        "0.",
+        "--warmup_ratio",
+        "0.03",
+        "--lr_scheduler_type",
+        "cosine",
+        "--logging_steps",
+        "1",
+        "--fsdp",
+        "full_shard auto_wrap",
+        "--fsdp_transformer_layer_cls_to_wrap",
+        "LlamaDecoderLayer",
+        "--tf32",
+        "True"
+    ],
+    "state": "running",
+    "program": "/home/LeiFeng/json/stanford_alpaca/train-rg.py",
+    "codePathLocal": "train-rg.py",
+    "codePath": "train-rg.py",
+    "git": {
+        "remote": "https://github.com/0-KaiKai-0/stanford_alpaca.git",
+        "commit": "e0579215c2f40faae4714c2b34be372f937699af"
+    },
+    "email": "1787678414@qq.com",
+    "root": "/home/LeiFeng/json/stanford_alpaca",
+    "host": "a100-80g-nl-08",
+    "username": "LeiFeng",
+    "executable": "/home/LeiFeng/miniconda3/envs/rationale/bin/python",
+    "cpu_count": 48,
+    "cpu_count_logical": 96,
+    "cpu_freq": {
+        "current": 2200.1680000000033,
+        "min": 0.0,
+        "max": 0.0
+    },
+    "cpu_freq_per_core": [
+        {
+            "current": 2200.168,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2200.168,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2200.168,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2200.168,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2200.168,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2200.168,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2200.168,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2200.168,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2200.168,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2200.168,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2200.168,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2200.168,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2200.168,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2200.168,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2200.168,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2200.168,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2200.168,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2200.168,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2200.168,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2200.168,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2200.168,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2200.168,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2200.168,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2200.168,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2200.168,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2200.168,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2200.168,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2200.168,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2200.168,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2200.168,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2200.168,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2200.168,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2200.168,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2200.168,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2200.168,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2200.168,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2200.168,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2200.168,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2200.168,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2200.168,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2200.168,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2200.168,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2200.168,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2200.168,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2200.168,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2200.168,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2200.168,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2200.168,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2200.168,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2200.168,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2200.168,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2200.168,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2200.168,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2200.168,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2200.168,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2200.168,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2200.168,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2200.168,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2200.168,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2200.168,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2200.168,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2200.168,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2200.168,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2200.168,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2200.168,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2200.168,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2200.168,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2200.168,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2200.168,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2200.168,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2200.168,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2200.168,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2200.168,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2200.168,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2200.168,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2200.168,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2200.168,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2200.168,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2200.168,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2200.168,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2200.168,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2200.168,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2200.168,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2200.168,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2200.168,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2200.168,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2200.168,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2200.168,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2200.168,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2200.168,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2200.168,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2200.168,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2200.168,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2200.168,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2200.168,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2200.168,
+            "min": 0.0,
+            "max": 0.0
+        }
+    ],
+    "disk": {
+        "/": {
+            "total": 484.4000587463379,
+            "used": 442.60802459716797
+        }
+    },
+    "gpu": "NVIDIA A100-SXM4-80GB",
+    "gpu_count": 8,
+    "gpu_devices": [
+        {
+            "name": "NVIDIA A100-SXM4-80GB",
+            "memory_total": 85899345920
+        },
+        {
+            "name": "NVIDIA A100-SXM4-80GB",
+            "memory_total": 85899345920
+        },
+        {
+            "name": "NVIDIA A100-SXM4-80GB",
+            "memory_total": 85899345920
+        },
+        {
+            "name": "NVIDIA A100-SXM4-80GB",
+            "memory_total": 85899345920
+        },
+        {
+            "name": "NVIDIA A100-SXM4-80GB",
+            "memory_total": 85899345920
+        },
+        {
+            "name": "NVIDIA A100-SXM4-80GB",
+            "memory_total": 85899345920
+        },
+        {
+            "name": "NVIDIA A100-SXM4-80GB",
+            "memory_total": 85899345920
+        },
+        {
+            "name": "NVIDIA A100-SXM4-80GB",
+            "memory_total": 85899345920
+        }
+    ],
+    "memory": {
+        "total": 1338.6077003479004
+    }
+}

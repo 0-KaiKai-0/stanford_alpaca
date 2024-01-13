@@ -1,5 +1,5 @@
 RUN_NAME=alpaca
-OUTPUT_DIR=outputs/$RUN_NAME
+OUTPUT_DIR=/home/LeiFeng/model/json/$RUN_NAME
 
 mkdir -p $OUTPUT_DIR
 cp train-alpaca_rationale.sh $OUTPUT_DIR/train.sh
@@ -9,7 +9,8 @@ CUDA_VISIBLE_DEVICES=0,1,2,3 torchrun --nproc_per_node=4 --master_port=52001 tra
     --model_name_or_path /home/LeiFeng/json/aliendao/dataroot/models/huggyllama/llama-7b \
     --data_path ./alpaca_data.json \
     --bf16 True \
-    --output_dir experiments/$OUTPUT_DIR \
+    --output_dir $OUTPUT_DIR \
+    --run_name $RUN_NAME \
     --num_train_epochs 3 \
     --per_device_train_batch_size 4 \
     --per_device_eval_batch_size 4 \
@@ -26,4 +27,4 @@ CUDA_VISIBLE_DEVICES=0,1,2,3 torchrun --nproc_per_node=4 --master_port=52001 tra
     --fsdp "full_shard auto_wrap" \
     --fsdp_transformer_layer_cls_to_wrap 'LlamaDecoderLayer' \
     --tf32 True \
-| tee -a experiments/$OUTPUT_DIR/train.log
+| tee -a $OUTPUT_DIR/train.log

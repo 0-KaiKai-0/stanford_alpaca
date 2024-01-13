@@ -46,7 +46,7 @@ class PipeTrainer(Trainer):
 
 
 class RatrionaleGuidedTrainer(Trainer):
-    def __init__(self, alpha=0.1, output_rationale=False, **kwargs):
+    def __init__(self, alpha=1.6, output_rationale=False, **kwargs):
         super().__init__(**kwargs)
         self.alpha = alpha
         self.output_rationale = output_rationale
@@ -79,9 +79,11 @@ class RatrionaleGuidedTrainer(Trainer):
         loss_fct = nn.KLDivLoss(reduction="batchmean")
         log_output_probs = torch.log(output_probs)
         log_rationale_probs = torch.log(rationale_probs)
-        M = (output_probs + rationale_probs) / 2
+        M = ((output_probs + rationale_probs) / 2)
+        log_M = torch.log(M)
         # prob_loss = loss_fct(log_output_probs, rationale_probs)
-        prob_loss = (loss_fct(log_rationale_probs, M) + loss_fct(log_output_probs, M)) / 2
+        prob_loss = (loss_fct(log_rationale_probs, M) + loss_fct(log_M, output_probs)) / 2
+        # prob_loss = loss_fct(log_rationale_probs.detach(), output_probs)
         
         loss = output_loss + self.alpha * prob_loss
         # import pdb

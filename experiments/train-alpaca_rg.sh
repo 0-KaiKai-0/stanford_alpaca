@@ -1,4 +1,4 @@
-RUN_NAME=alpaca_rg-js-alpha0.5
+RUN_NAME=alpaca_rg-logR_logM-alpha1.6
 OUTPUT_DIR=/home/LeiFeng/model/json/$RUN_NAME
 
 mkdir -p $OUTPUT_DIR
@@ -6,7 +6,7 @@ cp train-alpaca_rg.sh $OUTPUT_DIR/train.sh
 cd ..
 
 CUDA_VISIBLE_DEVICES=0,1,2,3 torchrun --nproc_per_node=4 --master_port=52000 train-rg.py \
-    --model_name_or_path /home/LeiFeng/json/aliendao/dataroot/models/huggyllama/llama-7b \
+    --model_name_or_path /home/LeiFeng/model/json/llama-7b \
     --data_path ./alpaca_rationale.json \
     --bf16 True \
     --output_dir $OUTPUT_DIR \
