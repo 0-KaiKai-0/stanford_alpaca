@@ -132,7 +132,7 @@ class SupervisedDataset(Dataset):
         super(SupervisedDataset, self).__init__()
         logging.warning("Loading data...")
         list_data_dict = utils.jload(data_path)
-        # list_data_dict = list_data_dict[:int(len(list_data_dict) * 0.1)]
+        # list_data_dict = list_data_dict[:int(len(list_data_dict) * 0.01)]
 
         logging.warning("Formatting inputs...")
         prompt_input, prompt_no_input = PROMPT_DICT["prompt_input"], PROMPT_DICT["prompt_no_input"]
@@ -194,6 +194,7 @@ def train():
         model_args.model_name_or_path,
         cache_dir=training_args.cache_dir,
     )
+    # model.remove_layers()
 
     tokenizer = transformers.AutoTokenizer.from_pretrained(
         model_args.model_name_or_path,

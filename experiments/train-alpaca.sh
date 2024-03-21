@@ -1,8 +1,8 @@
-RUN_NAME=alpaca
-OUTPUT_DIR=/home/LeiFeng/model/json/$RUN_NAME
+RUN_NAME=alpaca-prob-std-idx0-tau1
+OUTPUT_DIR=/data/data14/models/json/$RUN_NAME
 
 mkdir -p $OUTPUT_DIR
-cp train-alpaca_rationale.sh $OUTPUT_DIR/train.sh
+cp train-alpaca.sh $OUTPUT_DIR/train.sh
 cd ..
 
 CUDA_VISIBLE_DEVICES=0,1,2,3 torchrun --nproc_per_node=4 --master_port=52001 train.py \

@@ -46,7 +46,7 @@ class PipeTrainer(Trainer):
 
 
 class RatrionaleGuidedTrainer(Trainer):
-    def __init__(self, alpha=1.6, output_rationale=False, **kwargs):
+    def __init__(self, alpha=0, output_rationale=False, **kwargs):
         super().__init__(**kwargs)
         self.alpha = alpha
         self.output_rationale = output_rationale
@@ -67,7 +67,7 @@ class RatrionaleGuidedTrainer(Trainer):
         rationale_probs_list = []
         output_probs_list = []
         for idx in range(inputs['output']['input_ids'].shape[0]):
-            rationale_prob = nn.functional.softmax(rationale_outputs.logits[idx][rationale_end[idx]-labels_len[idx]:rationale_end[idx]], dim=-1).detach()
+            rationale_prob = nn.functional.softmax(rationale_outputs.logits[idx][rationale_end[idx]-labels_len[idx]:rationale_end[idx]], dim=-1)
             output_prob = nn.functional.softmax(output_outputs.logits[idx][output_pos[idx]:output_pos[idx]+labels_len[idx]], dim=-1)
             prob_len = min(rationale_prob.shape[0], output_prob.shape[0])
             rationale_probs_list.append(rationale_prob[:prob_len])
@@ -82,7 +82,10 @@ class RatrionaleGuidedTrainer(Trainer):
         M = ((output_probs + rationale_probs) / 2)
         log_M = torch.log(M)
         # prob_loss = loss_fct(log_output_probs, rationale_probs)
-        prob_loss = (loss_fct(log_rationale_probs, M) + loss_fct(log_M, output_probs)) / 2
+        # Rdetach_logR_logM:
+        # prob_loss = (loss_fct(log_rationale_probs, M) + loss_fct(log_M, output_probs)) / 2
+        # arg2detach_logR_logM
+        prob_loss = (loss_fct(log_rationale_probs, M.detach()) + loss_fct(log_M, output_probs.detach())) / 2
         # prob_loss = loss_fct(log_rationale_probs.detach(), output_probs)
         
         loss = output_loss + self.alpha * prob_loss
